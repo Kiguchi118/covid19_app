@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  subject: one
+  clinic: one
+  inspection_status: false
+
+two:
+  subject: two
+  clinic: two
+  inspection_status: false

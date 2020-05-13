@@ -10,13 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_13_191142) do
+ActiveRecord::Schema.define(version: 2020_05_13_201119) do
 
   create_table "clinics", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "city", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "pcr_inspections", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "subject_id", null: false
+    t.bigint "clinic_id", null: false
+    t.boolean "inspection_status", null: false
+    t.text "remark"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["clinic_id"], name: "index_pcr_inspections_on_clinic_id"
+    t.index ["subject_id"], name: "index_pcr_inspections_on_subject_id"
   end
 
   create_table "subjects", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -28,4 +39,6 @@ ActiveRecord::Schema.define(version: 2020_05_13_191142) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "pcr_inspections", "clinics"
+  add_foreign_key "pcr_inspections", "subjects"
 end
