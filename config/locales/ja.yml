@@ -1,0 +1,7 @@
+ja:
+  enums:
+    subject:
+      gender:
+        man: 男性
+        woman: 女性
+        other: その他
