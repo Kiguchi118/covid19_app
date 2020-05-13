@@ -1,0 +1,44 @@
+<h1>被検者登録</h1>
+
+<div class="form_container">
+    <%= form_with(model: @subject, local: true) do |f| %>
+        <div class="box_form">
+            <%= render 'shared/error_messages', object: f.object %>
+
+            <div class="field">
+                <%= f.label :name, "名前", class: "form_label" %>
+                <%= f.text_field :name, autofocus: true, class: "form_content", placeholder: "例）山田" %>
+            </div>
+
+            <% Subject.genders.each do |gender| %>
+                <div class="checkbox">
+                    <%= f.label :"gender_#{gender[0]}", t("enums.subject.gender.#{gender[0]}") %>
+                    <%= f.radio_button :gender, gender[0] %>
+                </div>
+            <% end %>
+
+            <div class="field">
+                <%= f.label :birthday, "生年月日", class: "form_label" %>
+            　  <%= raw sprintf(
+                        f.date_select(
+                            :birthday,          
+                            use_month_numbers: true,
+                            start_year:     (Time.now.year - 120),
+                            end_year:       (Time.now.year),
+                            default:        Date.new(1980, 1, 1),
+                            date_separator: '%s'),
+                        '年 ', '月 ') + '日'
+                %>
+            </div> 
+
+            <div class="field">
+                <%= f.label :address, "住所", class: "form_label" %>
+                <%= f.text_field :address, autofocus: true, class: "form_content", placeholder: "例）東京都 千代田区 千代田 ..." %>   
+            </div>
+
+            <div class="actions">
+                <%= f.submit "登録" %>
+            </div>
+        </div>
+    <% end %>
+</div>
