@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2020_05_13_201119) do
   create_table "pcr_inspections", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "subject_id", null: false
     t.bigint "clinic_id", null: false
+    t.date "publication_date", null: false
     t.boolean "inspection_status", null: false
     t.text "remark"
     t.datetime "created_at", null: false

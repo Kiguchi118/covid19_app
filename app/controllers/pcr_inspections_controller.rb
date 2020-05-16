@@ -17,6 +17,8 @@ class PcrInspectionsController < ApplicationController
   
     def pcr_params
       params.require(:pcr_inspection).permit(
-                  :subject_id,:clinic_id,:inspection_status,:remark)
+            :subject_id,:clinic_id,:publication_date,
+            :inspection_status,:remark
+      )
     end
 end

@@ -16,6 +16,20 @@
             </div>
 
             <div class="field">
+                <%= f.label :publication_date, "公表日", class: "form-label" %>
+            　  <%= raw sprintf(
+                        f.date_select(
+                            :publication_date,          
+                            use_month_numbers: true,
+                            start_year:     2019,
+                            end_year:       (Time.now.year),
+                            default:        Date.new(2020, 1, 1),
+                            date_separator: '%s'),
+                        '年 ', '月 ') + '日'
+                %>
+            </div> 
+
+            <div class="field">
                 <%= f.label :inspection_status, "検査結果", class: "form-label" %>
                 <%= f.label :inspection_status_true, "陽性" %>
                 <%= f.radio_button :inspection_status, true %>
