@@ -16,7 +16,10 @@ class SubjectsController < ApplicationController
   private
 
     def subject_params
-      params.require(:subject).permit(:name,:gender,:birthday,:address)
+      params.require(:subject).permit(
+              :name,:gender,:birthday,:age,:postcode,
+              :prefecture_name,:address_city,:address_other
+      )
     end
 
 end

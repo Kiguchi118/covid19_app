@@ -1,21 +1,22 @@
 <h1>PCR検査登録</h1>
 
-<div class="form_container">
+<div class="form-container small-form">
     <%= form_with(model: @pcr, local: true, url: pcr_inspections_path) do |f| %>
-        <div class="box_form">
+        <div class="box-form">
             <%= render 'shared/error_messages', object: f.object %>
 
             <div class="field">
-                <%= f.label :subject_id, "被検者", class: "form_label" %>
-                <%= f.collection_select :subject_id, Subject.all, :id, :name, prompt: "被検者を選択" %>
+                <%= f.label :subject_id, "被検者", class: "form-label" %>
+                <%= f.collection_select :subject_id, Subject.all, :id, :name, include_blank: "被検者を選択" %>
             </div>
 
             <div class="field">
-                <%= f.label :clinic_id, "診療所", class: "form_label" %>
-                <%= f.collection_select :clinic_id, Clinic.all, :id, :name, prompt: "診療所を選択" %>
+                <%= f.label :clinic_id, "診療所", class: "form-label" %>
+                <%= f.collection_select :clinic_id, Clinic.all, :id, :name, include_blank: "診療所を選択" %>
             </div>
 
-             <div class="field">
+            <div class="field">
+                <%= f.label :inspection_status, "検査結果", class: "form-label" %>
                 <%= f.label :inspection_status_true, "陽性" %>
                 <%= f.radio_button :inspection_status, true %>
                 <%= f.label :inspection_status_false, "陰性" %>
@@ -23,7 +24,7 @@
             </div>
 
             <div class="field">
-                <%= f.text_area :remark, autofocus: true, class: "form_content", placeholder: "備考" %>   
+                <%= f.text_area :remark, class: "form-content", placeholder: "備考" %>   
             </div>
 
             <div class="actions">
