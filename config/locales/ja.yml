@@ -72,7 +72,7 @@ ja:
 
   date:
     formats:
-      default: "%Y/%m/%d"
+      default: "%m/%d"
       short: "%m/%d"
       long: "%Y年%m月%d日(%a)"
 

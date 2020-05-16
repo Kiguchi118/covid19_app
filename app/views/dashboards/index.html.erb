@@ -16,7 +16,7 @@
     <div class="data-head">
         <div class="data-title">感染割合</div>
         <div class="data-info">
-            <span><%= @infect_rate %></span>人 / 10万
+            <span><%= @infect_rate %></span>人 / 10万人
         </div>
     </div>
     <div class="data-head">
@@ -32,7 +32,7 @@
         <div class="data-head">
             <div class="data-title">陽性患者の属性</div>
             <div class="data-info">
-                <span><%= @pcr_all.count %></span>人
+                <span><%= @infect_num %></span>人
             </div>
         </div>
         <div class="data-detail">
@@ -40,46 +40,25 @@
                 <thead>
                     <tr>
                         <th>公表日</th>
+                        <th>居住地</th>
                         <th>年代</th>
                         <th>性別</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <% @subjects.each do |subject| %>
+                    <% @pcr_page.each do |pcr| %>
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td><%= subject.gender_i18n %></td>
+                            <td><%= l pcr.publication_date %></td>
+                            <td><%= pcr.subject.address_city %></td>
+                            <td><%= pcr.subject.view_ages %></td>
+                            <td><%= pcr.subject.gender_i18n %></td>
                         </tr>
                     <% end %>
                 </tbody>
             </table>
         </div>
-    </div>
-    <div class="data-view">
-        <div class="data-head">
-            <div class="data-title">陽性患者数（区市町村別）</div>
-            <div class="data-info">
-                <span><%= @pcr_all.count %></span>人
-            </div>
-        </div>
-        <div class="data-detail">
-            <table>
-                <thead>
-                    <tr>
-                        <th>区市町村</th>
-                        <th>陽性患者数</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <% @pcr_all.each do |pcr| %>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                    <% end %>
-                </tbody>
-            </table>
+        <div class="pager">
+            <%= paginate @pcr_page %>
         </div>
     </div>
 </div>

@@ -1,0 +1,36 @@
+@import "color";
+
+/* ページネーション */
+.pager {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.pagination {
+  display: inline-block;
+  padding: 0 8px;
+  border: 1px solid rgb(199, 199, 199);
+  border-radius: 4px;
+  li {
+    display: inline-block;
+    padding: 0 1px;
+    a {
+      text-decoration: none;
+      color: gray;
+      font-size: 1.3rem;
+      &:hover {
+        color: $blue;
+        background-color: $skyblue;
+      }
+    }
+  }
+  .page {
+    a {
+      padding: 2px 5px;
+    }
+  }
+  .active a {
+    background: $skyblue;
+    border-radius: 5px;
+  }
+}

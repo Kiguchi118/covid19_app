@@ -70,3 +70,7 @@ gem 'rails-i18n'
 # 住所
 gem 'jp_prefecture'
 gem 'jquery-rails'
+
+# ページネーション
+gem 'kaminari'
+gem 'kaminari-bootstrap'

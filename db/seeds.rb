@@ -15,15 +15,22 @@ CSV.foreach('db/csv/clinic.csv', headers: true) do |row|
   )
 end
 
-# CSV.foreach('db/csv/subject.csv', headers: true) do |row|
-#   Subject.create(
-#     name: row['name'],
-#     gender: row['gender'],
-#     birthday: row['birthday'],
-#     age: row['age'],
-#     postcode: row['postcode'],
-#     prefecture_name: row['prefecture_name'],
-#     address_city: row['address_city'],
-#     address_other: row['address_other']
-#   )
-# end
+CSV.foreach('db/csv/data.csv', headers: true) do |row|
+  Subject.create!(
+    name: row[0],
+    gender: row['gender'],
+    birthday: row['birthday'],
+    age: row['age'],
+    postcode: row['postcode'],
+    prefecture_name: row['prefecture_name'],
+    address_city: row['address_city'],
+    address_other: row['address_other']
+  )
+  PcrInspection.create!(
+    subject_id: row[8],
+    clinic_id: row[9],
+    publication_date: row['publication_date'],
+    inspection_status: row['inspection_status'],
+    remark: row['remark']
+  )
+end

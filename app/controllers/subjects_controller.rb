@@ -7,7 +7,7 @@ class SubjectsController < ApplicationController
   def create
     @subject = Subject.new(subject_params)
     if @subject.save
-      redirect_to root_path, flash:{success: "被検者の登録ができました。"}
+      redirect_to new_pcr_inspection_path, flash:{success: "被検者の登録ができました。"}
     else
       render :new
     end
