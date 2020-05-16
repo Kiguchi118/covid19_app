@@ -7,8 +7,11 @@ class DashboardsController < ApplicationController
     @subjects = Subject.all
     @pcr_all = PcrInspection.all
     @pcr_page = PcrInspection.page(params[:page]).per(20)
-
-    calculate
+    respond_to do |format|
+      format.html
+      format.js
+    end
+    calculate # 感染割合や陽性率などの計算
   end
 
   private
@@ -19,6 +22,7 @@ class DashboardsController < ApplicationController
       @positive_rate = positive_rate.round(2)
     end
 
+    # 感染者数の算出
     def total_infected
       count = 0
       @pcr_all.each do |pcr|
@@ -34,6 +38,7 @@ class DashboardsController < ApplicationController
       (@infect_num * PER_PEOPLE) / TOKYO_POPULATION.to_f
     end
 
+    # 陽性率の算出
     def positive_rate
       (@infect_num / @pcr_all.count.to_f) * 100
     end

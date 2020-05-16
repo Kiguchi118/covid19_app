@@ -1,64 +1,7 @@
 <h1>都内の最新感染動向</h1>
 
-<div class="main-info">
-    <div class="data-head">
-        <div class="data-title">被検者数</div>
-        <div class="data-info">
-            <span><%= @pcr_all.count %></span>人
-        </div>
-    </div>
-    <div class="data-head">
-        <div class="data-title">感染者数</div>
-        <div class="data-info">
-            <span><%= @infect_num %></span>人
-        </div>
-    </div>
-    <div class="data-head">
-        <div class="data-title">感染割合</div>
-        <div class="data-info">
-            <span><%= @infect_rate %></span>人 / 10万人
-        </div>
-    </div>
-    <div class="data-head">
-        <div class="data-title">陽性率</div>
-        <div class="data-info">
-            <span><%= @positive_rate %></span>%
-        </div>
-    </div>
-</div>
+<%= render 'main_info' %>
 
-<div class="data-container">
-    <div class="data-view">
-        <div class="data-head">
-            <div class="data-title">陽性患者の属性</div>
-            <div class="data-info">
-                <span><%= @infect_num %></span>人
-            </div>
-        </div>
-        <div class="data-detail">
-            <table>
-                <thead>
-                    <tr>
-                        <th>公表日</th>
-                        <th>居住地</th>
-                        <th>年代</th>
-                        <th>性別</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <% @pcr_page.each do |pcr| %>
-                        <tr>
-                            <td><%= l pcr.publication_date %></td>
-                            <td><%= pcr.subject.address_city %></td>
-                            <td><%= pcr.subject.view_ages %></td>
-                            <td><%= pcr.subject.gender_i18n %></td>
-                        </tr>
-                    <% end %>
-                </tbody>
-            </table>
-        </div>
-        <div class="pager">
-            <%= paginate @pcr_page %>
-        </div>
-    </div>
+<div class="data-wrapper">
+    <%= render 'data_view' %>
 </div>

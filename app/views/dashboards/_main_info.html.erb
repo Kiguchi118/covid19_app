@@ -1,0 +1,26 @@
+<div class="main-info">
+    <div class="data-head">
+        <div class="data-title">被検者数</div>
+        <div class="data-info">
+            <span><%= @pcr_all.count %></span>人
+        </div>
+    </div>
+    <div class="data-head">
+        <div class="data-title">感染者数</div>
+        <div class="data-info">
+            <span><%= @infect_num %></span>人
+        </div>
+    </div>
+    <div class="data-head">
+        <div class="data-title">感染割合</div>
+        <div class="data-info">
+            <span><%= @infect_rate %></span>人 / 10万人
+        </div>
+    </div>
+    <div class="data-head">
+        <div class="data-title">陽性率</div>
+        <div class="data-info">
+            <span><%= @positive_rate %></span>%
+        </div>
+    </div>
+</div>
