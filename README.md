@@ -1,24 +1,13 @@
-# README
+# コロナ感染者，PCR検査の情報管理サイト
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 機能
 
-Things you may want to cover:
+- 都内の全感染者数と感染割合の表示
+- 被験者とPCR検査の登録
 
-* Ruby version
+## 今後の改善点
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- 被験者とPCR検査の編集や削除機能
+- 被験者とPCR検査の検索機能
+- 区市町村別の陽性患者数の表示
+- 見た目（レスポンシブ対応など）
