@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 2020_05_13_201119) do
 
   create_table "clinics", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
-    t.string "city", null: false
+    t.integer "city", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -34,7 +34,11 @@ ActiveRecord::Schema.define(version: 2020_05_13_201119) do
     t.string "name", null: false
     t.integer "gender", null: false
     t.date "birthday", null: false
-    t.string "address", null: false
+    t.string "age", null: false
+    t.integer "postcode", null: false
+    t.string "prefecture_name", null: false
+    t.string "address_city", null: false
+    t.string "address_other", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

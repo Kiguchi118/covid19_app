@@ -66,3 +66,7 @@ gem "dotenv-rails"
 # 日本語化
 gem 'enum_help'
 gem 'rails-i18n'
+
+# 住所
+gem 'jp_prefecture'
+gem 'jquery-rails'
