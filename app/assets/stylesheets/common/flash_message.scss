@@ -1,0 +1,15 @@
+@mixin flashColor($border-color, $back-color) {
+  border: 1px solid $border-color;
+  background-color: $back-color;
+}
+
+.alert {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+}
+
+.alert-success {
+  @include flashColor(rgb(0, 224, 0), rgb(226, 255, 183));
+}
