@@ -1,0 +1,27 @@
+/* バリデーションエラー */
+.field_with_errors {
+  display: contents;
+  input,
+  select {
+    outline: 1px solid red;
+    background-color: rgb(255, 235, 235);
+  }
+  select {
+    border-radius: 0;
+  }
+}
+
+#error_explanation {
+  width: 90%;
+  background-color: rgb(253, 170, 170);
+  margin: 10px auto 30px;
+  padding: 25px;
+  border: 1px solid black;
+  border-radius: 3px;
+  ul {
+    padding: 0 30px;
+    li {
+      line-height: 1.5;
+    }
+  }
+}

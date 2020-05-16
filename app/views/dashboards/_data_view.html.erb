@@ -1,0 +1,35 @@
+<div class="data-container">
+    <div class="data-view">
+        <div class="data-head">
+            <div class="data-title">陽性患者の属性</div>
+            <div class="data-info">
+                <span><%= @infect_num %></span>人
+            </div>
+        </div>
+        <div class="data-detail">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="tab-pub-date">公表日</th>
+                        <th class="tab-city">居住地</th>
+                        <th class="tab-age">年代</th>
+                        <th class="tab-gender">性別</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @pcr_page.each do |pcr| %>
+                        <tr>
+                            <td><%= l pcr.publication_date %></td>
+                            <td><%= pcr.subject.address_city %></td>
+                            <td><%= pcr.subject.view_ages %></td>
+                            <td><%= pcr.subject.gender_i18n %></td>
+                        </tr>
+                    <% end %>
+                </tbody>
+            </table>
+        </div>
+        <div class="pager">
+            <%= paginate @pcr_page, remote: true %>
+        </div>
+    </div>
+</div>

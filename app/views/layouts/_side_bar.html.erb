@@ -1,0 +1,22 @@
+<nav>
+    <header>新型ウイルス<br>情報管理サイト</header>
+    <div class="nav-container">
+        <ul>
+            <li>
+                <%= link_to root_path do %>
+                    <i class="fas fa-chart-line fa-lg fa-fw"></i>都内の最新感染動向
+                <% end %>
+            </li>
+        <li>
+            <%= link_to new_subject_path, data: { "turbolinks" => false } do %>
+                <i class="fas fa-user-alt fa-lg fa-fw"></i>被験者登録
+            <% end %>
+        </li>
+        <li>
+            <%= link_to new_pcr_inspection_path do %>
+                <i class="fas fa-hospital fa-lg fa-fw"></i>PCR検査登録
+            <% end %>
+        </li>
+        </ul>
+    </div>
+</nav>

@@ -1,0 +1,121 @@
+@import "./color";
+
+/* placeholderの色変更 */
+@mixin placeholder($color) {
+  &::placeholder {
+    color: $color;
+  }
+
+  // IE
+  &:-ms-input-placeholder {
+    color: $color;
+  }
+
+  // Edge
+  &::-ms-input-placeholder {
+    color: $color;
+  }
+}
+/* 入力時の色や枠 */
+@mixin field_focus {
+  border: 1px solid pink;
+  background-color: rgb(206, 235, 253);
+}
+
+/* フォーム系 */
+.form-container {
+  margin: 15px 20px 25px;
+  max-width: 750px;
+  border: 1px solid $blue;
+  border-radius: 4px;
+  box-shadow: 0 0 5px gray;
+}
+
+.small-form {
+  max-width: 550px;
+}
+
+.box-form {
+  padding: 25px;
+}
+
+.field {
+  margin-bottom: 35px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-left: solid 8px blue;
+  padding-left: 6px;
+  select::-ms-expand {
+    display: none;
+  }
+  select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 76%;
+    padding: 10px 15px;
+    font-size: 15px;
+    line-height: 1.1em;
+    border-radius: 5px;
+    background-color: rgb(241, 241, 241);
+  }
+  #subject_birthday_1i,
+  #subject_birthday_2i,
+  #subject_birthday_3i,
+  #pcr_inspection_publication_date_1i,
+  #pcr_inspection_publication_date_2i,
+  #pcr_inspection_publication_date_3i {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: calc(24% - 15px);
+    margin: 0 5px;
+    padding: 10px 15px;
+    font-size: 15px;
+    line-height: 1.1em;
+    border-radius: 5px;
+    background-color: rgb(241, 241, 241);
+  }
+  textarea {
+    min-width: 100%;
+    resize: vertical;
+  }
+}
+
+.form-label {
+  width: 25%;
+}
+
+.form-content {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  width: calc(75% - 10px);
+  padding: 10px 15px;
+  background-color: white;
+  font-size: 15px;
+  border: 1px solid lightgray;
+  border-radius: 2px;
+  @include placeholder(rgb(180, 180, 180));
+  &:focus {
+    @include field_focus;
+  }
+}
+
+.actions {
+  text-align: center;
+  input {
+    border: 1px solid $blue;
+    border-radius: 20px;
+    padding: 8px 30px;
+    font-size: 18px;
+    transition: 0.3s;
+    &:hover {
+      background-color: $skyblue;
+    }
+    &:active {
+      transform: translateY(2px);
+    }
+  }
+}

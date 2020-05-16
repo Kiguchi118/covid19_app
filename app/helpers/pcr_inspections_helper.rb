@@ -1,0 +1,2 @@
+module PcrInspectionsHelper
+end
